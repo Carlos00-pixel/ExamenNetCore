@@ -1,0 +1,18 @@
+﻿<h1 style="color: blue">Registro Usuario</h1>
+
+<form method="post">
+    <label>Nombre</label>
+    <input type="text" name="nombre" class="form-control" required />
+    <label>Apellidos</label>
+    <input type="text" name="apellidos" class="form-control" required />
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" required />
+    <label>Password</label>
+    <input type="text" name="password" class="form-control" required />
+    <label>Imagen</label>
+    <input type="text" name="imagen" class="form-control" required />
+
+    <button class="btn btn-info">Registrar</button>
+</form>
+
+<h1 style="color: red">@ViewData["MENSAJE"]</h1>
