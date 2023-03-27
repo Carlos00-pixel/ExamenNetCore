@@ -1,0 +1,39 @@
+﻿@model VistaImagenZapatilla
+
+<div>
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">
+            <button onclick="cambiarImagen(1)">
+                Primero
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button onclick="cambiarImagen(@ViewData["ANTERIOR"], @Model.IdProducto)">
+                Anterior
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button onclick="cambiarImagen(@ViewData["SIGUIENTE"], @Model.IdProducto)">
+                Siguiente
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button onclick="cambiarImagen(@ViewData["ULTIMO"], @Model.IdProducto)">
+                Último
+            </button>
+        </li>
+    </ul>
+</div>
+
+<hr />
+
+@{
+    if (Model != null)
+    {
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info">
+                <img src="@Model.Imagen" width="200" />
+            </li>
+        </ul>
+    }
+}

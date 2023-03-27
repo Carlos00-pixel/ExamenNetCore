@@ -10,6 +10,9 @@
 else
 {
     <li class="nav-item">
+        @await Component.InvokeAsync("DropDownZapatillas")
+    </li>
+    <li class="nav-item">
         <a class="nav-link text-dark"
             asp-controller="Managed" 
             asp-action="LogOut">

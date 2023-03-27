@@ -1,0 +1,13 @@
+﻿<h1>Perfil Usuario</h1>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        Nombre: @Context.User.FindFirst("Nombre")?.Value
+    </li>
+    <li class="list-group-item">
+        Apellidos: @Context.User.FindFirst("Apellidos")?.Value
+    </li>
+    <li class="list-group-item">
+        <img src="@Context.User.FindFirst("Imagen")?.Value" />
+    </li>
+</ul>

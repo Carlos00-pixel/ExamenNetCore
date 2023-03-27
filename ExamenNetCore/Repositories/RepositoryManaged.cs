@@ -2,6 +2,7 @@
 using ExamenNetCore.Helpers;
 using ExamenNetCore.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace ExamenNetCore.Repositories
 {

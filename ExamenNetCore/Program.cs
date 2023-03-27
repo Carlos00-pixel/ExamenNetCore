@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 string connectionString = builder.Configuration.GetConnectionString("SqlZapatillas");
 builder.Services.AddTransient<RepositoryManaged>();
+builder.Services.AddTransient<RepositoryZapas>();
 builder.Services.AddDbContext<ZapatillasContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddControllersWithViews();
 
@@ -29,6 +30,10 @@ builder.Services.AddAuthentication(options =>
         config.AccessDeniedPath = "/Managed/ErrorAcceso";
     });
 
+builder.Services.AddControllersWithViews(options =>
+options.EnableEndpointRouting = false)
+ .AddSessionStateTempDataProvider();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,8 +54,11 @@ app.UseAuthorization();
 
 app.UseSession();
 
-app.MapControllerRoute(
+app.UseMvc(route =>
+{
+    route.MapRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    template: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.Run();

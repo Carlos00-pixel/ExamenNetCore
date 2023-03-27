@@ -63,6 +63,12 @@ namespace ExamenNetCore.Controllers
                 await HttpContext.SignInAsync
                     (CookieAuthenticationDefaults.AuthenticationScheme
                     , user);
+                //string controller = TempData["controller"].ToString();
+                //string action = TempData["action"].ToString();
+                //string id = TempData["id"].ToString();
+
+                //return RedirectToAction(action, controller
+                //    , new { id = id });
                 return RedirectToAction("Index", "Home");
             }
             else

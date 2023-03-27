@@ -1,0 +1,53 @@
+﻿@model ExamenNetCore.Models.Zapatilla
+
+@{
+    ViewData["Title"] = "DetallesZapas";
+}
+
+@section Scripts {
+    <script>
+        $("#zapa-images").load('@Url.Action("_VistaImagenZapatillasPartial", "Zapatillas", new { idzapatilla = @Model.IdProducto })');
+        function cambiarImagen(posicion, idProducto) {
+            $("#zapa-images").load(`/Zapatillas/_VistaImagenZapatillasPartial?idzapatilla=${idProducto}&posicion=${posicion}`);
+        }
+    </script>
+}
+
+<h1>Detalles Zapas</h1>
+
+<div>
+    <h4>Zapatilla</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdProducto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+    </dl>
+</div>
+<div id="zapa-images"></div>
+<div>
+    <a asp-controller="Home" asp-action="Index">Back Home</a>
+</div>
+
+<div id="contenido"></div>
